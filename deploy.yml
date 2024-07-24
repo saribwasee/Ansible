@@ -1,0 +1,33 @@
+---
+ - name: playbook
+   hosts: servers
+   tasks:
+
+    - name: copy files
+      copy:
+          src: /root/deploy.tar.gz
+          dest: /opt/deploy.tar.gz
+
+    - name: Create a dir
+      file:
+          path: /opt/myapp
+          state: directory
+
+    - name: untar file
+      unarchive:
+          src: /opt/deploy.tar.gz
+          dest: /opt/myapp
+
+    - name: Make the installer script executable
+      file:
+        path: /opt/myapp/deploy/deployer.sh
+        mode: '0755'
+
+    - name: run script shell file
+      shell: /opt/myapp/deploy/deployer.sh
+      register: installer_ouput
+      become: true
+
+    - name: Debug and show the variable installer_ouput
+      debug:
+        var: installer_output
