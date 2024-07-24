@@ -1,0 +1,8 @@
+[servers]
+IP1 
+IP2
+IP3
+...
+
+
+ansible_user=your_username ansible_ssh_private_key_file=/path/to/your/private/key
