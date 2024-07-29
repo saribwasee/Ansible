@@ -35,6 +35,13 @@ Here is sample of ansible-playbook file
           path: /opt/myapp/deploy/deployer.sh
           mode: '0755'                                       
 
+     - name: Install apache2 on the web server                # Name of the task
+       apt:                                                   # apt package manager
+        pkg:                                                  
+        - apache2                                             # Package name
+        - php
+        state: present                                        # State could be define installation/upgradation/uninstallation
+
     - name: Run script shell file                            # Name of the task
       shell: /opt/myapp/deploy/deployer.sh                   # Want to use shell in remote servers
       register: installer_output                             # assigning a variable
