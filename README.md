@@ -42,6 +42,12 @@ Here is sample of ansible-playbook file
         - php
         state: present                                        # State could be define installation/upgradation/uninstallation
 
+      - name: Upgrade all packages to the latest version      # Name of the task
+         apt:                                                 # apt package manager
+          name: "*"                                           # all packages will be upgrade
+          state: latest
+
+
     - name: Run script shell file                            # Name of the task
       shell: /opt/myapp/deploy/deployer.sh                   # Want to use shell in remote servers
       register: installer_output                             # assigning a variable
