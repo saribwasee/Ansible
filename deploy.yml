@@ -13,6 +13,13 @@
           path: /opt/myapp
           state: directory
 
+     - name: Install apache2 on the web server
+       apt:
+        pkg:
+        - apache2
+        - php
+        state: present
+      
     - name: untar file
       unarchive:
           src: /opt/deploy.tar.gz
