@@ -19,6 +19,11 @@
         - apache2
         - php
         state: present
+
+      - name: Upgrade all packages to the latest version
+        apt:
+          name: "*"
+          state: latest
       
     - name: untar file
       unarchive:
