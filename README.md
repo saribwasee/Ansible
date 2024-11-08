@@ -1,3 +1,5 @@
+
+
 # Ansible
 
 Ansible is used to automate IT tasks. Multiple tasks can be combined into a single file called a playbook. The inventory file contains the destination IP addresses and can be referenced from the playbook file to group multiple IPs into domains.
